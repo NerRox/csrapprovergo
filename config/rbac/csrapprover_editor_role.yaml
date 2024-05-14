@@ -1,0 +1,31 @@
+# permissions for end users to edit csrapprovers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: csrapprover-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: csr-approver
+    app.kubernetes.io/part-of: csr-approver
+    app.kubernetes.io/managed-by: kustomize
+  name: csrapprover-editor-role
+rules:
+- apiGroups:
+  - approver.csrapprover.io
+  resources:
+  - csrapprovers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - approver.csrapprover.io
+  resources:
+  - csrapprovers/status
+  verbs:
+  - get

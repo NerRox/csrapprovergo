@@ -1,0 +1,27 @@
+# permissions for end users to view csrapprovers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: csrapprover-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: csr-approver
+    app.kubernetes.io/part-of: csr-approver
+    app.kubernetes.io/managed-by: kustomize
+  name: csrapprover-viewer-role
+rules:
+- apiGroups:
+  - approver.csrapprover.io
+  resources:
+  - csrapprovers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - approver.csrapprover.io
+  resources:
+  - csrapprovers/status
+  verbs:
+  - get

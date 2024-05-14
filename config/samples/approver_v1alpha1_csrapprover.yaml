@@ -1,0 +1,12 @@
+apiVersion: approver.csrapprover.io/v1alpha1
+kind: CSRApprover
+metadata:
+  labels:
+    app.kubernetes.io/name: csrapprover
+    app.kubernetes.io/instance: csrapprover-sample
+    app.kubernetes.io/part-of: csr-approver
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: csr-approver
+  name: csrapprover-sample
+spec:
+  # TODO(user): Add fields here
